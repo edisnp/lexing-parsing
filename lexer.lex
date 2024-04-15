@@ -13,7 +13,7 @@
 
 0|[1-9][0-9]* { return number_token;}
 
-[ \t] { } // Empty action
+[ \t] { } // Empty action!
 [\n] {return end_of_file;}
 [()*+] { return *yytext;}
 
