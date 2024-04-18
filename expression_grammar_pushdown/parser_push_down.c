@@ -45,4 +45,5 @@ int main(){
   while(!empty()) {
     int element = pop();
     switch(element) {
-cas
+case E:
+  
