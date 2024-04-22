@@ -14,7 +14,7 @@ In first two examples we implemented parser for aritmetic expressions with two o
 
 Naive grammar (with left-recursive rule)<br>
   E ->  E+T<br> 
-       | T<br>
+        | T<br>
   T ->  T*F<br>
       | F<br>
   F ->  (E)<br>
