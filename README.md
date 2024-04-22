@@ -13,11 +13,11 @@ In first two examples we implemented parser for aritmetic expressions with two o
 2, 2+4, 3 + 3*4, 2 + (2+3*(2*2*3(2+3)) + 100) * 21 + 2
 
 Naive grammar (with left-recursive rule)
-  E ->  E+T
-      | T
-  T ->  T*F
+  -E ->  E+T
+       | T
+  -T ->  T*F
       | F
-  F ->  (E)
+  -F ->  (E)
       | num_token
 
 Transformed grammar 
