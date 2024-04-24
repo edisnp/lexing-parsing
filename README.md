@@ -2,6 +2,8 @@ CFG (Contex-Free Grammar) are used for parsing in programming languages and they
   - There are essentially two different approach to parsing
       - Bottom-up
       - Top-down<br>
+
+
 The key concept in parsing is construction syntax tree or abstract syntax tree(AST) with the help of push_down automata.
 In bottom-up approach there could be two different fashion but essentially the same
   - first one is using system stack widely known as recursive-descent-parsing
