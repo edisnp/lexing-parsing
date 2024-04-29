@@ -7,9 +7,13 @@ void error(char *message) {
   fprintf(stderr, "Syntatical error: %s\n", message);
   exit(EXIT_FAILURE);
 }
-
 int lookahead;
 extern int yylex();
+
+void helper_function(int token, char* message) {
+  if(lookahead != token)
+    error(message);
+}
 
 void matlab_program_start();
 void matlab_program();
@@ -27,8 +31,9 @@ void matlab_program_start() {
   if(lookahead == function_token) {
     printf("MatlabProgramStart -> function_token id = id(id) MatlabProgram\n");
     lookahead = yylex();
-    if(lookahead != id_token)
-      error("expect id_token");
+    /*if(lookahead != id_token)
+      error("expect id_token");*/
+    helper_function(id_token, "expect id_token");
     lookahead = yylex();
     if(lookahead != '=')
       error("expect equality sign '='");
