@@ -35,8 +35,9 @@ void matlab_program_start() {
       error("expect id_token");*/
     helper_function(id_token, "expect id_token");
     lookahead = yylex();
-    if(lookahead != '=')
-      error("expect equality sign '='");
+    /*if(lookahead != '=')
+      error("expect equality sign '='");*/
+    helper_function('=', "expect equality sign '='");
     lookahead = yylex();
     if(lookahead != id_token)
       error("expect id_token");
