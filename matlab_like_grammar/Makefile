@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g
 
 matlab_like_parser: matlab_like_parser.o lex.yy.o
 	$(CC) $(CFLAGS) -o $@ $^
