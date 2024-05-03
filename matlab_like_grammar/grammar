@@ -1,1 +1,25 @@
-MatlabProgram -> function_token id '=' id(id) ... 
+MatlabProgramStart -> function_token id '=' id(id) MatlabProgram						{function_token}
+																
+MatlabProgramStart -> IfStatement MatlabProgram									{if_token}		
+		    | ForStatement MatlabProgram								{for_token}
+		    | eps	   										{eoi}
+
+IfStatement 	   -> if_token IfStatementP									{if_token}
+IfStatementP	   -> length_token'('id')' compare_token num_token ErrorStatement end_token			{length_token}
+		    | isequal_token'('id','id')' ErrorStatement end_token					{isequal_token}
+		    
+
+ForStatement	   -> for_token id '=' ForStatementP								{for_token}
+ForStatementP	   -> num_token':'num_token':'num_token Assignment end_token					{num_token}
+		    | length_token'('id')'':'num_token':'num_token Assignment ErrorStatement end_token		{length_token}
+
+Assignment	   -> id'('num_token')' '=' '[' Lista ']'	   	      		     			{id}
+
+Lista		   -> ListaP											{num_token}
+		    | eps											{']'}
+
+ListaP		   -> num_token ListaPP										{num_token}
+ListaPP		   -> ','num_token ListaPP									{','}
+		    | eps											{']'}
+
+ErrorStatement	   -> error_token'(' text_token ')'								{error_token}
